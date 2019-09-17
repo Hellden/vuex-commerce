@@ -24,8 +24,8 @@ export default new Router({
       component: () => import("./views/admin/Products.vue")
     },
     {
-      path: "/admin/product-add",
-      name: "admin-product-add",
+      path: "/admin/ProductAdd",
+      name: "admin-ProductAdd",
       component: () => import("./views/admin/ProductAdd.vue")
     }
   ]
