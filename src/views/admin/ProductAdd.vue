@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ProductForm from "@/components/ProductForm.vue";
+import ProductForm from "@/components/admin/ProductForm.vue";
 export default {
   components: {
     ProductForm
