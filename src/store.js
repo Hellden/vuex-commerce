@@ -6,7 +6,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    errors: [],
+    cart: []
   },
   mutations: {
     GET_PRODUCTS(state, products) {
@@ -14,6 +16,9 @@ export default new Vuex.Store({
     },
     CREATE_PRODUCT(state, product) {
       state.products = [product, ...state.products];
+    },
+    GET_ERROR(state, error) {
+      state.errors = [error, ...state.errors];
     }
   },
   actions: {
@@ -23,7 +28,13 @@ export default new Vuex.Store({
         .then(res => {
           commit("GET_PRODUCTS", res.data);
         })
-        .catch(err => console.error(err.message));
+        .catch(err => {
+          const error = {
+            date: new Date(),
+            message: `failed to retrieve products: ${err.message}`
+          };
+          commit("GET_ERROR", error);
+        });
     },
     createProduct({ commit }, product) {
       productService
@@ -32,6 +43,11 @@ export default new Vuex.Store({
           commit("CREATE_PRODUCT", product);
         })
         .catch(err => console.error(err.message));
+    },
+    addToCart({ commit }, product) {
+      productService.addToCart(product).then(() => {
+        commit("ADD_TO_CART", product).catch(err => console.error(err.message));
+      });
     }
   }
 });

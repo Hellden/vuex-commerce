@@ -110,5 +110,6 @@
       "price": "20",
       "image": "image.png"
     }
-  ]
+  ],
+  "cart": []
 }

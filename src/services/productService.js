@@ -8,5 +8,8 @@ export default {
   },
   createProduct(book) {
     return axios.post(`${baseUrl}/products`, book);
+  },
+  addTocart(product) {
+    return axios.post(`${baseUrl}/cart`, product);
   }
 };
