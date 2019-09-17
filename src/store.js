@@ -19,6 +19,9 @@ export default new Vuex.Store({
     },
     GET_ERROR(state, error) {
       state.errors = [error, ...state.errors];
+    },
+    ADD_TO_CART(state, product) {
+      state.cart = [product, ...state.cart];
     }
   },
   actions: {
