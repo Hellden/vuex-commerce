@@ -10,7 +10,11 @@
       <span class="spacer">
         <router-link to="/admin">Admin</router-link>
       </span>
-      <span class="float-right">Cart (5) </span>
+      <span class="float-right">
+        <router-link to="/cart">
+          Cart
+        </router-link>
+      </span>
     </div>
     <div class="container-fluid">
       <router-view />

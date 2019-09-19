@@ -20,8 +20,8 @@ export default new Vuex.Store({
     GET_ERROR(state, error) {
       state.errors = [error, ...state.errors];
     },
-    ADD_TO_CART(state, product) {
-      state.cart = [product, ...state.cart];
+    UPDATE_CART(state, cart) {
+      state.cart = cart;
     }
   },
   actions: {
@@ -47,10 +47,25 @@ export default new Vuex.Store({
         })
         .catch(err => console.error(err.message));
     },
-    addToCart({ commit }, product) {
-      productService.addToCart(product).then(() => {
-        commit("ADD_TO_CART", product).catch(err => console.error(err.message));
-      });
+    updateCart({ commit }, product) {
+      return productService
+        .addToCart(product)
+        .then(() => {
+          console.log(
+            "cart",
+            JSON.parse(localStorage.getItem("vuex-commerce-cart"))
+          );
+          commit(
+            "UPDATE_CART",
+            JSON.parse(localStorage.getItem("vuex-commerce-cart"))
+          );
+        })
+        .catch(err => console.error(err));
+    }
+  },
+  getters: {
+    getCart(state) {
+      return state.cart;
     }
   }
 });

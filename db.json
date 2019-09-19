@@ -111,18 +111,5 @@
       "image": "image.png"
     }
   ],
-  "cart": [
-    {
-      "id": 9780596806750,
-      "title": "JavaScript Patterns: Build Better Applications with Coding and Design Patterns",
-      "author": {
-        "lastName": "Stefanov",
-        "firstName": "Stoyan"
-      },
-      "publisher": "O'Reilly Media",
-      "year": 2010,
-      "price": 29.99,
-      "image": "https://images-na.ssl-images-amazon.com/images/I/51%2BSiphz7AL._SL200_.jpg"
-    }
-  ]
+  "cart": []
 }
