@@ -11,9 +11,7 @@
         <router-link to="/admin">Admin</router-link>
       </span>
       <span class="float-right">
-        <router-link to="/cart">
-          Cart
-        </router-link>
+        <router-link to="/cart"> Cart ({{ numberArticleInCart }}) </router-link>
       </span>
     </div>
     <div class="container-fluid">
@@ -21,6 +19,16 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    numberArticleInCart() {
+      return this.$store.getters.getNumberArticlesInCart;
+    }
+  }
+};
+</script>
 
 <style>
 #app {

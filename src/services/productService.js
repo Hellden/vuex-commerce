@@ -23,6 +23,7 @@ export default {
         const products = JSON.parse(localStorage.getItem("vuex-commerce-cart"))
           .products;
         // is same product already in cart?
+
         const index = products.findIndex(p => p.id === product.id);
         if (index === -1) {
           product.quantity = 1;
